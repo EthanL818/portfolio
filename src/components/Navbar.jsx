@@ -30,13 +30,8 @@ export default function Navbar() {
     <div>
       <nav className="fixed left-0 right-0 top-4 z-50">
         {/* Desktop Navbar */}
-        <div className="mx-auto hidden max-w-2xl items-center justify-center rounded-lg bg-black/20 py-3 backdrop-blur-lg lg:flex">
+        <div className="mx-auto hidden max-w-xl items-center justify-center rounded-lg bg-black/20 py-3 backdrop-blur-lg lg:flex">
           <div className="flex justify-between gap-6">
-            <div>
-              <a href="#">
-                <h1>ethan</h1>
-              </a>
-            </div>
             <div>
               <ul className="flex items-center gap-4 ">
                 {NAVIGATION_LINKS.map((item, index) => (
@@ -59,11 +54,6 @@ export default function Navbar() {
       {/* Mobile Navbar */}
       <div className="rounded-lg backdrop-blur-md lg:hidden">
         <div className="flex items-center justify-between">
-          <div>
-            <a href="#">
-              <h1 className="m-2">ethan</h1>
-            </a>
-          </div>
           <div className="flex items-center">
             <button
               className="focus:outline-none lg:hidden"

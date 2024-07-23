@@ -2,20 +2,24 @@ import Spline from "@splinetool/react-spline";
 
 export default function Hero() {
   return (
-    <>
-      <section className="w-full h-screen flex items-center">
-        <div className="grid max-w-screen-xl px-4 mx-auto lg:gap-8 xl:gap-0 lg:grid-cols-12">
-          <div className="mr-auto place-self-center lg:col-span-7">
-            <h1 className="max-w-2xl mb-4 text-4xl font-extrabold tracking-tight leading-none md:text-5xl xl:text-6xl dark:text-white">
-              Ethan Liu
-            </h1>
-            <p className="max-w-2xl mb-6 font-light text-gray-500 lg:mb-8 md:text-lg lg:text-xl dark:text-gray-400">
-              From checkout to global sales tax compliance, companies around the
-              world use Flowbite to simplify their payment stack.
-            </p>
-          </div>
-        </div>
-      </section>
-    </>
+    <div className="relative flex flex-col items-center justify-center h-screen">
+      {/* Spline as background */}
+      <div className="absolute inset-0 z-0">
+        <Spline scene="https://prod.spline.design/GaRcnvLmVlrI16C2/scene.splinecode" />
+      </div>
+
+      {/* Text content on top with responsive sizes */}
+      <div className="z-10">
+        <p className="text-xl sm:text-2xl md:text-3xl text-purple-500 mb-2">
+          Hi, I'm
+        </p>
+        <h1 className="text-4xl sm:text-6xl md:text-8xl font-extrabold text-center mb-3">
+          ETHAN LIU
+        </h1>
+        <p className="text-lg sm:text-xl md:text-4xl text-center">
+          Software Engineering Student
+        </p>
+      </div>
+    </div>
   );
 }
