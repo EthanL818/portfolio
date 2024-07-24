@@ -1,6 +1,7 @@
 import Spline from "@splinetool/react-spline";
+import { FaChevronDown } from "react-icons/fa";
 
-export default function Hero() {
+export default function Hero({ onArrowClick }) {
   return (
     <div className="relative flex flex-col items-center justify-center h-screen">
       {/* Spline as background */}
@@ -19,6 +20,13 @@ export default function Hero() {
         <p className="text-lg sm:text-xl md:text-4xl text-center">
           Software Engineering Student
         </p>
+      </div>
+
+      <div className="absolute bottom-4 left-1/2 transform -translate-x-1/2 animate-bounce">
+        <FaChevronDown
+          className="text-4xl text-purple-500 cursor-pointer"
+          onClick={onArrowClick}
+        />
       </div>
     </div>
   );
