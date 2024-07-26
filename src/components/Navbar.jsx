@@ -13,8 +13,8 @@ export default function Navbar() {
   const handleLinkClick = (e, href) => {
     e.preventDefault();
     const targetElement = document.querySelector(href);
-    if (targetelement) {
-      const offset = -85;
+    if (targetElement) {
+      const offset = 20;
       const elementPosition = targetElement.getBoundingClientRect().top;
       const offsetPosition = elementPosition + window.scrollY + offset;
 
