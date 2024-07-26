@@ -1,4 +1,7 @@
+import React from "react";
 import Spline from "@splinetool/react-spline";
+import { LuMouse } from "react-icons/lu";
+import { motion } from "framer-motion";
 
 export default function Hero() {
   return (
@@ -19,9 +22,25 @@ export default function Hero() {
           Software Engineering Student
         </p>
       </div>
+      {/* Scroll down icon */}
+      <motion.div
+        className="absolute bottom-10 flex flex-col items-center"
+        initial={{ y: 0 }}
+        animate={{ y: [0, 10, 0] }}
+        transition={{
+          duration: 1.5,
+          repeat: Infinity,
+          repeatType: "loop",
+        }}
+      >
+        <div className="text-4xl text-purple-500 flex items-center">
+          <LuMouse />
+          <h3 className="text-lg ml-2">scroll down</h3>
+        </div>
+      </motion.div>
       <div className="absolute top-0 left-0 right-0 bottom-0 -z-10">
-        <div className="h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_90%,#000_40%,#63e_100%)]"></div>{" "}
-      </div>{" "}
+        <div className="h-full w-full items-center px-5 py-24 [background:radial-gradient(125%_125%_at_50%_90%,#000_40%,#63e_100%)]"></div>
+      </div>
     </div>
   );
 }

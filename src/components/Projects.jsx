@@ -147,17 +147,20 @@ export default function Projects({ projectList }) {
   return (
     <div className="relative flex justify-center items-center min-h-screen bg-black overflow-hidden">
       {/* Spline in background */}
-      <div className="absolute inset-0 z-0 brightness-75 blur-sm">
+      <div className="absolute inset-0 z-0 brightness-75">
         <Spline scene="https://prod.spline.design/SAw5j4HB1JGtUcNe/scene.splinecode" />
       </div>
       <div className="relative w-full max-w-screen-xl z-10">
-        <h1 className="font-extrabold mb-4 mt-10 text-6xl text-center animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent">
-          PROJECTS
-        </h1>
-        <p className="text-2xl text-center mb-10 text-white-700">
-          A selection of my recent work
-        </p>
-        <div className="flex justify-center">
+        <div className="backdrop-blur">
+          <h1 className="font-extrabold mb-4 text-6xl text-center animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent">
+            PROJECTS
+          </h1>
+          <p className="text-2xl text-center mb-10 text-white-700">
+            A selection of my recent work
+          </p>
+        </div>
+
+        <div className="flex justify-center mb-10 backdrop-blur rounded-2xl bg-white/10 p-4">
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-4 gap-6">
             {projectList.map((project, index) => (
               <ProjectCard

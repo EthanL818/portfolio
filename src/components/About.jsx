@@ -1,5 +1,5 @@
 import { useRef, useState } from "react";
-import { FaGithub } from "react-icons/fa";
+import { FaGithub, FaLinkedin } from "react-icons/fa";
 import headshot from "../assets/headshot.png";
 import resume from "../assets/resume.pdf";
 import aboutBackground from "../assets/about-background.jpg";
@@ -7,23 +7,26 @@ import aboutBackground from "../assets/about-background.jpg";
 export default function About() {
   const resumeUrl = resume;
   const githubUrl = "https://github.com/EthanL818";
+  const linkedinUrl = "https://www.linkedin.com/in/ethan-f-liu/";
 
   return (
     <div className="relative flex flex-col items-center justify-center h-screen overflow-hidden">
       <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-40">
         {/* About me */}
-        <div className="md:w-1/2">
+        <div className="md:w-1/2 backdrop-blur	">
           <span className="font-extrabold mb-4 text-5xl inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent">
             ABOUT ME
           </span>
           <p className="text-xl text-white mb-7">
-            Hi, I'm Ethan, entering my third year of software engineering. I
-            have a passion for programming and love creating cool projects.
-            Currently interested particularly in AI and AI-powered applications.
+            Hi, I'm Ethan. I'm currently entering my third year of software
+            engineering,and I have a passion for programming and love creating
+            cool projects. Currently interested particularly in AI and
+            AI-powered applications.
             <br />
             <br />
             When I'm not programming, you can probably find me suffering through
-            schoolwork, watching shows, or playing video games.
+            schoolwork, watching shows, or playing video games. Some of my
+            favourites include Sekiro, Elden Ring, and Persona 5.
             <br />
             <br />
             If you have any questions, collaboration ideas, or simply want to
@@ -41,6 +44,11 @@ export default function About() {
             <HoverButton
               buttonContent={<FaGithub className="text-3xl" />}
               onClick={() => window.open(githubUrl, "_blank")}
+              square
+            />
+            <HoverButton
+              buttonContent={<FaLinkedin className="text-3xl" />}
+              onClick={() => window.open(linkedinUrl, "_blank")}
               square
             />
           </div>

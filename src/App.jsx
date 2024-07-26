@@ -3,7 +3,7 @@ import { PROJECTLIST } from "./constants";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
-import Divider from "./components/Divider";
+import Experience from "./components/Experience";
 
 export default function App() {
   return (
@@ -15,7 +15,9 @@ export default function App() {
       <section id="about">
         <About />
       </section>
-      <Divider />
+      <section id="experience">
+        <Experience />
+      </section>
       <section id="projects">
         <Projects projectList={PROJECTLIST} />
       </section>
