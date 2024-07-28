@@ -10,16 +10,16 @@ export default function About() {
   const linkedinUrl = "https://www.linkedin.com/in/ethan-f-liu/";
 
   return (
-    <div className="relative flex flex-col items-center justify-center h-screen overflow-hidden">
-      <div className="container mx-auto px-4 flex flex-col-reverse md:flex-row items-center justify-center space-y-4 md:space-y-0 md:space-x-40">
+    <div className="relative flex flex-col items-center justify-center min-h-screen overflow-hidden px-4 sm:px-6 lg:px-8">
+      <div className="container mx-auto flex flex-col-reverse md:flex-row items-center justify-center md:space-x-10 lg:space-x-40">
         {/* About me */}
-        <div className="md:w-1/2 backdrop-blur	">
-          <span className="font-extrabold mb-4 text-5xl inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent">
+        <div className="md:w-1/2 backdrop-blur mb-8 md:mb-0 text-center md:text-left">
+          <span className="font-extrabold mb-4 text-3xl sm:text-4xl md:text-5xl inline-flex animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent">
             ABOUT ME
           </span>
-          <p className="text-xl text-white mb-7">
+          <p className="text-base sm:text-lg md:text-xl text-white mb-7">
             Hi, I'm Ethan. I'm currently entering my third year of software
-            engineering,and I have a passion for programming and love creating
+            engineering, and I have a passion for programming and love creating
             cool projects. Currently interested particularly in AI and
             AI-powered applications.
             <br />
@@ -34,9 +34,8 @@ export default function About() {
             to networking, sharing knowledge, and collaborating on exciting
             projects.
           </p>
-
           {/* Button container with flexbox */}
-          <div className="flex justify-start space-x-4">
+          <div className="flex justify-center md:justify-start space-x-4">
             <HoverButton
               buttonContent="View Resume"
               onClick={() => window.open(resumeUrl, "_blank")}
@@ -54,7 +53,7 @@ export default function About() {
           </div>
         </div>
         {/* Headshot */}
-        <div className="md:w-1/3 flex justify-end">
+        <div className="md:w-1/3 flex justify-end mt-10 md:mt-0 mb-10 md:mb-0">
           <div className="relative overflow-hidden rounded-xl border border-gray-800 p-[1px] backdrop-blur-3xl">
             <span className="absolute inset-[-1000%] animate-[spin_2s_linear_infinite] bg-[conic-gradient(from_90deg_at_50%_50%,#E2CBFF_0%,#393BB2_50%,#E2CBFF_100%)]" />
             <div className="inline-flex h-full w-full items-center justify-center rounded-xl bg-gray-950 backdrop-blur-3xl">

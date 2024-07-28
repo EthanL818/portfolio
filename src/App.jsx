@@ -1,6 +1,5 @@
 import Projects from "./components/Projects";
 import { PROJECTLIST } from "./constants";
-import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import About from "./components/About";
 import Experience from "./components/Experience";
@@ -8,7 +7,6 @@ import Experience from "./components/Experience";
 export default function App() {
   return (
     <main className="overflow-x-hidden tracking-tighter text-gray-200 antialiased min-h-screen relative">
-      <Navbar />
       <section id="home">
         <Hero />
       </section>

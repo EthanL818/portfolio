@@ -64,11 +64,11 @@ function Modal({ project, onClose }) {
       onClick={handleBackgroundClick}
       className="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 transition-opacity duration-300 ease-in-out"
     >
-      <div className="bg-zinc-900 border border-zinc-700 rounded-lg shadow-lg p-8 max-w-3xl w-full relative transform transition-transform duration-300 ease-in-out">
+      <div className="bg-zinc-900 border border-zinc-700 rounded-lg shadow-lg p-8 max-w-3xl w-full mx-4 sm:mx-8 relative transform transition-transform duration-300 ease-in-out">
         <div className="relative">
           {project.images && project.images.length > 0 && (
             <img
-              className="rounded-t-lg w-full h-96 object-cover mb-4 transition-opacity duration-300 ease-in-out"
+              className="rounded-t-lg w-full h-auto sm:h-96 object-cover mb-4 transition-opacity duration-300 ease-in-out"
               src={project.images[currentImageIndex]}
               alt={project.title}
             />
@@ -148,15 +148,18 @@ export default function Projects({ projectList }) {
     <div className="relative flex justify-center items-center min-h-screen bg-black overflow-hidden">
       {/* Spline in background */}
       <div className="absolute inset-0 z-0 brightness-75">
-        <Spline scene="https://prod.spline.design/SAw5j4HB1JGtUcNe/scene.splinecode" />
+        <Spline
+          scene="https://prod.spline.design/SAw5j4HB1JGtUcNe/scene.splinecode"
+          className="h-1/2 md:h-full"
+        />
       </div>
       <div className="relative w-full max-w-screen-xl z-10">
         <div className="backdrop-blur">
-          <h1 className="font-extrabold mb-4 text-6xl text-center animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent">
+          <h1 className="font-extrabold mb-4 text-4xl sm:text-4xl md:text-5xl text-center animate-text-gradient bg-gradient-to-r from-[#b2a8fd] via-[#8678f9] to-[#c7d2fe] bg-[200%_auto] bg-clip-text text-transparent">
             PROJECTS
           </h1>
-          <p className="text-2xl text-center mb-10 text-white-700">
-            A selection of my recent work
+          <p className="text-xl sm:text-2xl md:text-2xl text-center mb-10 text-white-700">
+            a selection of my recent work
           </p>
         </div>
 
