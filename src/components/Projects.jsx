@@ -7,22 +7,16 @@ import Spline from "@splinetool/react-spline";
 
 function Modal({ project, onClose }) {
   const modalRef = useRef();
-  const [currentImageIndex, setCurrentImageIndex] = useState(0);
+  const [currentMediaIndex, setCurrentMediaIndex] = useState(0);
 
   useEffect(() => {
     const modalElement = modalRef.current;
-
-    // Add class for animation
     modalElement.classList.add("opacity-0", "translate-y-4");
     setTimeout(() => {
       modalElement.classList.remove("opacity-0", "translate-y-4");
     }, 100);
-
-    // Lock scroll when modal is open
     disableBodyScroll(modalElement);
-
     return () => {
-      // Unlock scroll when modal is closed
       enableBodyScroll(modalElement);
     };
   }, []);
@@ -45,17 +39,39 @@ function Modal({ project, onClose }) {
     }
   };
 
-  const handleNextImage = () => {
-    setCurrentImageIndex(
-      (prevIndex) => (prevIndex + 1) % project.images.length
+  const handleNextMedia = () => {
+    setCurrentMediaIndex((prevIndex) => (prevIndex + 1) % project.media.length);
+  };
+
+  const handlePrevMedia = () => {
+    setCurrentMediaIndex(
+      (prevIndex) =>
+        (prevIndex - 1 + project.media.length) % project.media.length
     );
   };
 
-  const handlePrevImage = () => {
-    setCurrentImageIndex(
-      (prevIndex) =>
-        (prevIndex - 1 + project.images.length) % project.images.length
-    );
+  const renderMedia = () => {
+    const currentMedia = project.media[currentMediaIndex];
+    if (currentMedia.type === "image") {
+      return (
+        <img
+          className="rounded-t-lg w-full h-auto max-h-96 object-contain mb-4 transition-opacity duration-300 ease-in-out"
+          src={currentMedia.url}
+          alt={project.title}
+        />
+      );
+    } else if (currentMedia.type === "youtube") {
+      return (
+        <iframe
+          className="rounded-t-lg w-full h-96 mb-4"
+          src={`https://www.youtube.com/embed/${currentMedia.id}`}
+          title={project.title}
+          frameBorder="0"
+          allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture"
+          allowFullScreen
+        ></iframe>
+      );
+    }
   };
 
   return (
@@ -66,21 +82,15 @@ function Modal({ project, onClose }) {
     >
       <div className="bg-zinc-900 border border-zinc-700 rounded-lg shadow-lg p-8 max-w-3xl w-full mx-4 sm:mx-8 relative transform transition-transform duration-300 ease-in-out">
         <div className="relative">
-          {project.images && project.images.length > 0 && (
-            <img
-              className="rounded-t-lg w-full h-auto sm:h-96 object-cover mb-4 transition-opacity duration-300 ease-in-out"
-              src={project.images[currentImageIndex]}
-              alt={project.title}
-            />
-          )}
+          {project.media && project.media.length > 0 && renderMedia()}
           <button
-            onClick={handlePrevImage}
+            onClick={handlePrevMedia}
             className="absolute left-0 top-1/2 mx-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
           >
             <IoIosArrowBack />
           </button>
           <button
-            onClick={handleNextImage}
+            onClick={handleNextMedia}
             className="absolute right-0 top-1/2 mx-2 transform -translate-y-1/2 bg-black bg-opacity-50 text-white p-2 rounded-full"
           >
             <IoIosArrowForward />
@@ -113,7 +123,6 @@ function Modal({ project, onClose }) {
               View Code
             </a>
           )}
-
           {project.liveLink && (
             <a
               href={project.liveLink}

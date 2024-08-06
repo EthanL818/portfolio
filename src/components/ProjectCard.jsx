@@ -1,5 +1,3 @@
-// ProjectCard.js
-
 import React from "react";
 
 export default function ProjectCard({ project, onClick }) {
@@ -8,11 +6,17 @@ export default function ProjectCard({ project, onClick }) {
       onClick={() => onClick(project)}
       className="max-w-xs bg-zinc-900 border border-zinc-700 rounded-lg shadow-md cursor-pointer transform transition-transform duration-300 hover:scale-105"
     >
-      <img
-        className="rounded-t-lg w-full h-48 object-cover"
-        src={project.images[0]}
-        alt={project.title}
-      />
+      {project.media && project.media.length > 0 && (
+        <img
+          className="rounded-t-lg w-full h-48 object-cover"
+          src={
+            project.media[0].type === "image"
+              ? project.media[0].url
+              : "/path/to/default/image.jpg"
+          }
+          alt={project.title}
+        />
+      )}
       <div className="p-5">
         <h5 className="text-xl font-bold tracking-tight text-white">
           {project.title}
